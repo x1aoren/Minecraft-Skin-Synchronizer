@@ -2,6 +2,7 @@ package com.skinsync.common;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import com.google.gson.JsonElement;
 
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -18,7 +19,7 @@ public class SkinFetcher {
         try (InputStreamReader reader = new InputStreamReader(connection.getInputStream())) {
             JsonObject obj = JsonParser.parseReader(reader).getAsJsonObject();
             if (obj.has("properties")) {
-                for (var el : obj.getAsJsonArray("properties")) {
+                for (JsonElement el : obj.getAsJsonArray("properties")) {
                     JsonObject prop = el.getAsJsonObject();
                     if ("textures".equals(prop.get("name").getAsString())) {
                         String value = prop.get("value").getAsString();
