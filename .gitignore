@@ -1,0 +1,29 @@
+# Maven
+/target/
+**/target/
+
+# IDE
+.idea/
+*.iml
+*.ipr
+*.iws
+*.swp
+*.swo
+*.bak
+*.tmp
+*.log
+.DS_Store
+
+# OS
+Thumbs.db
+Desktop.ini
+
+# Cache
+*.dat
+skin-cache.dat
+
+# Others
+*.class
+*.jar
+*.war
+*.ear 
