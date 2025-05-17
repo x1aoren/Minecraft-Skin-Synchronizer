@@ -1,0 +1,4 @@
+# SkinSynchronizer 配置文件
+cache-file: skin-cache.dat
+api-timeout: 5000 # 毫秒
+cache-expire-minutes: 1440 # 皮肤缓存有效期（分钟），默认1天 

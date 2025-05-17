@@ -1,0 +1,6 @@
+name: SkinSynchronizer
+main: com.skinsync.bukkit.SkinSynchronizerBukkitPlugin
+version: 1.0
+api-version: 1.20
+authors: ["x1aoren"]
+description: 自动同步离线模式玩家皮肤为正版皮肤 
