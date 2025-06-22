@@ -1,8 +1,8 @@
 package com.skinsync.common;
 
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import com.google.gson.JsonElement;
 
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -10,12 +10,18 @@ import java.net.URL;
 import java.util.UUID;
 
 public class SkinFetcher {
-    public static SkinData fetch(UUID uuid) throws Exception {
+    private final int timeout;
+
+    public SkinFetcher(int timeout) {
+        this.timeout = timeout;
+    }
+
+    public SkinData fetch(UUID uuid) throws Exception {
         URL url = new URL("https://sessionserver.mojang.com/session/minecraft/profile/" + uuid + "?unsigned=false");
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         connection.setRequestMethod("GET");
-        connection.setConnectTimeout(5000);
-        connection.setReadTimeout(5000);
+        connection.setConnectTimeout(timeout);
+        connection.setReadTimeout(timeout);
         try (InputStreamReader reader = new InputStreamReader(connection.getInputStream())) {
             JsonObject obj = JsonParser.parseReader(reader).getAsJsonObject();
             if (obj.has("properties")) {

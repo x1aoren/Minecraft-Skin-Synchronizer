@@ -1,6 +1,9 @@
 package com.skinsync.common;
 
-public class SkinData {
+import java.io.Serializable;
+
+public class SkinData implements Serializable {
+    private static final long serialVersionUID = 1L;
     private final String value;
     private final String signature;
 
